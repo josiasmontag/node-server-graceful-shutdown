@@ -16,7 +16,9 @@ function enableGracefulShutdown(server, socketIdleTimeout) {
     server.close(cb);
     for (var key in server.activeConnections) {
       server.activeConnections[key].setTimeout(server.socketIdleTimeout, function() {
-        server.activeConnections[key].destroy();  
+        if(server.activeConnections[key]) {
+          server.activeConnections[key].destroy();  
+        }
       });
     }
   };
