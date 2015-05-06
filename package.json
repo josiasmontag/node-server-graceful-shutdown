@@ -1,0 +1,15 @@
+{
+  "name": "server-graceful-shutdown",
+  "version": "0.1.0",
+  "description": "Graceful shutdown for node http(s) servers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/josiasmontag/node-server-graceful-shutdown"
+  },
+  "author": "Josias Montag <josias@montag.info>",
+  "readmeFilename": "README.md",
+}
