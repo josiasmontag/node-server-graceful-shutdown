@@ -2,21 +2,21 @@ module.exports = enableGracefulShutdown;
 
 function enableGracefulShutdown(server, socketIdleTimeout) {
   server.socketIdleTimeout = socketIdleTimeout || 10000;
-  var connections = {};
+  server.activeConnections = {};
 
   server.on('connection', function(conn) {
     var key = conn.remoteAddress + ':' + conn.remotePort;
-    connections[key] = conn;
+    server.activeConnections[key] = conn;
     conn.on('close', function() {
-      delete connections[key];
+      delete server.activeConnections[key];
     });
   });
 
   server.shutdown = function(cb) {
     server.close(cb);
-    for (var key in connections) {
-      connections[key].setTimeout(server.socketIdleTimeout, function() {
-        connections[key].destroy();  
+    for (var key in server.activeConnections) {
+      server.activeConnections[key].setTimeout(server.socketIdleTimeout, function() {
+        server.activeConnections[key].destroy();  
       });
     }
   };
