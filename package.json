@@ -11,5 +11,5 @@
     "url": "git://github.com/josiasmontag/node-server-graceful-shutdown"
   },
   "author": "Josias Montag <josias@montag.info>",
-  "readmeFilename": "README.md",
+  "readmeFilename": "README.md"
 }
