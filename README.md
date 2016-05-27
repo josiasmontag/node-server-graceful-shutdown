@@ -3,6 +3,9 @@
 Adds a ``shutdown(callback)`` to nodes http(s) servers. ``shutdown()`` will stop accepting new connections and waits until all requests are finished.
 This is very similar to the node builtin [close()](https://nodejs.org/api/net.html#net_server_close_callback) function with the only difference that ``shutdown()`` destroys idle connections (e.g. keep alive connections) using a timeout (10 seconds as default) without data transfer.
 
+[![Build Status](https://travis-ci.org/josiasmontag/node-server-graceful-shutdown.svg?branch=master)](https://travis-ci.org/josiasmontag/node-server-graceful-shutdown)
+
+
 ## Usage
 
 ```javascript
